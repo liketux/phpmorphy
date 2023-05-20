@@ -1,6 +1,6 @@
 <?php
 
-namespace liketux\phpMorphy;
+namespace liketux\phpmorphy;
 
 use phpMorphy;
 

@@ -16,13 +16,13 @@ This library allow retireve follow morph information for any word:
 
 Via Composer
 ``` bash
-$ composer require cijic/phpmorphy
+$ composer require liketux/phpmorphy
 ```
 
 ## Usage
 
 ```php
-$morphy = new cijic\phpMorphy\Morphy('en');
+$morphy = new liketux\phpMorphy\Morphy('en');
 print_r($morphy->getPseudoRoot('FIGHTY'));
 ```
 result 
@@ -45,12 +45,12 @@ Add to config/app.php:
 
 Section ```providers```
 ``` php
-cijic\phpMorphy\MorphyServiceProvider::class,
+liketux\phpmorphy\MorphyServiceProvider::class,
 ```
 
 Section ```aliases```
 ``` php
-'Morphy'    => cijic\phpMorphy\Facade\Morphy::class,
+'Morphy'    => liketux\phpmorphy\Facade\Morphy::class,
 ```
 
 ## Change log

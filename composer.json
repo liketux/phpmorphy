@@ -20,7 +20,7 @@
             "libs/phpmorphy/src/"
         ],
         "psr-4": {
-            "cijic\\phpMorphy\\": "src"
+            "liketux\\phpmorphy\\": "src"
         }
     }
 }

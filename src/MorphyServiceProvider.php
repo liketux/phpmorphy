@@ -1,6 +1,6 @@
 <?php
 
-namespace liketux\phpMorphy;
+namespace liketux\phpmorphy;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
