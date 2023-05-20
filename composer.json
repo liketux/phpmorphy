@@ -1,10 +1,10 @@
 {
-    "name": "cijic/phpmorphy",
-    "description": "phpMorphy - morphological analyzer library for Russian, English, German and Ukrainian languages.",
+    "name": "liketux/phpmorphy",
+    "description": "phpMorphy - morphological analyzer library for Russian, English and Azerbaijani languages.",
     "keywords": [
         "phpMorphy"
     ],
-    "homepage": "https://github.com/cijic/phpmorphy",
+    "homepage": "https://github.com/liketux/phpmorphy",
     "license": "MIT",
     "authors": [{
         "name": "Chiril Teterea",
