@@ -1,0 +1,22 @@
+Сделал утилиту для конвертации myspell словников в словарь для phpMorphy hun2xml
+Опции:
+--affix файл аффиксов myspell
+--dict словарь myspell
+--xml результат
+--locale ru_RU, uk_UA и т.п.
+
+на выходе получим xml файл, далее нужно его скомпилировать:
+
+1) качаем последний phpmorphy-buildsystem https://sourceforge.net/project/showfiles.php?group_id=192189&package_id=266784
+2) распаковываем в какую-нибудь директорию, к примеру c:\tmp\phpmorphy
+3) устанавливаем переменную окружения MORPHY_DIR в c:\tmp\phpmorphy
+4) устанавливаем переменную PHPRC - путь к директории php (%PHPRC%\php должен запускать CLI версию php)
+5) переходим в директорию phpmorphy-0.3.x/bin, запускаем build_dict.bat
+
+build_dict.bat XML_FILE OUT_DIR ENCODING
+
+XML_FILE - файл, которые получили от hun2xml
+OUT_DIR - директория куда попадет словарь
+ENCODING - кодировка
+
+Словари есть тут http://wiki.services.openoffice.org/wiki/Dictionaries

@@ -636,8 +636,8 @@ class phpMorphy {
             case 'eng':
                 $bundle->setLang('en_EN');
                 break;
-            case 'ger':
-                $bundle->setLang('de_DE');
+            case 'aze':
+                $bundle->setLang('az_AZ');
                 break;
         }
 

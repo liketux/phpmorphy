@@ -10,9 +10,9 @@ if($argc < 4) {
 }
 
 define('BIN_DIR', dirname(__FILE__));
-define('MORPHY_DIR', getenv('MORPHY_DIR'));
+define('MORPHY_DIR', dirname(__FILE__) . '/../morphy-0.3.1-win32');
 define('MORPHY_BUILDER', MORPHY_DIR . '/bin/morphy_builder');
-define('PHP_BIN', getenv('PHPRC') . '/php');
+define('PHP_BIN', 'php');
 
 function doError($msg) {
     echo $msg;
@@ -52,9 +52,9 @@ class ShellArgsEscaper {
 
 function doExec($title, $file, $args) {
     echo $title . "\n";
-    
+
     $ext = pathinfo($file, PATHINFO_EXTENSION);
-    
+
     $cmd = '';
     switch(strtolower($ext)) {
         case 'php':
@@ -62,9 +62,9 @@ function doExec($title, $file, $args) {
             break;
         default:
             $cmd = ShellArgsEscaper::escape($file);
-            
+
     }
-    
+
     foreach($args as $k => $v) {
         if(is_null($v)) {
             if(is_string($k)) {
@@ -78,23 +78,23 @@ function doExec($title, $file, $args) {
             }
         }
     }
-    
+
     $desc = array(
         1 => array("pipe", "w"),  // stdout
         2 => array("pipe", "w") // stderr
     );
-    
+
     $opts = array(
         'binary_pipes' => true,
         'bypass_shell' => true
     );
-    
+
     $pipes = array();
-    
+
     if(false === ($handle = proc_open($cmd, $desc, $pipes, null, null, $opts))) {
         doError('Can`t execute \'' . $cmd . '\' command');
     }
-    
+
     if(1) {
         while(!feof($pipes[1])) {
             fputs(STDOUT, fgets($pipes[1]));
@@ -102,19 +102,19 @@ function doExec($title, $file, $args) {
     } else {
         stream_copy_to_stream($pipes[1], STDOUT);
     }
-    
+
     $stderr = trim(stream_get_contents($pipes[2]));
-    
+
     fclose($pipes[1]);
     fclose($pipes[2]);
     $errorcode = proc_close($handle);
-    
+
     if($errorcode) {
         doError(
             "\n\nCommand '" . $cmd .'\' exit with code = ' . $errorcode . ', error = \'' . $stderr . '\''
         );
     }
-    
+
     echo "OK.\n";
 }
 
@@ -123,20 +123,20 @@ function get_locale($xml) {
     if(false === $reader->open($xml)) {
         return false;
     }
-    
+
     while($reader->read()) {
         if($reader->nodeType == XMLReader::ELEMENT) {
             if($reader->localName === 'locale') {
                 $result = $reader->getAttribute('name');
-                
+
                 $result = strlen($result) ? $result : false;
                 break;
             }
         }
     }
-    
+
     $reader->close();
-    
+
     return $result;
 }
 
@@ -144,7 +144,7 @@ function locale_to_dialing($locale) {
     static $map = array(
         'ru_RU' => 'Russian',
         'en_EN' => 'English',
-        'de_DE' => 'German',
+        'az_AZ' => 'Azerbaijani',
     );
 
     if(isset($map[$locale])) {
