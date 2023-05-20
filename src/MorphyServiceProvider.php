@@ -1,6 +1,6 @@
 <?php
 
-namespace cijic\phpMorphy;
+namespace liketux\phpMorphy;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
